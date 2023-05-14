@@ -14,6 +14,9 @@ switch ($page) {
   case 'berkas_portofolio':
     include "../mahasiswa/berkas_portofolio.php";
     break;
+  case 'ajuan_view':
+    include "../mahasiswa/ajuan_view.php";
+    break;
   case 'kegiatan':
     include "../mahasiswa/kegiatan.php";
     break;

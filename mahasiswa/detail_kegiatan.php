@@ -76,8 +76,8 @@ $_SESSION['id_formulir'] = $id_formulir;
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th>Data Ajuan</th>
-                                    <td> <a href="../mahasiswa/template.php?page=viewajuan&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Data</button></a></td>
+                                    <th>Data Ajuan (Formulir Pendaftaran & Berkas Portofolio)</th>
+                                    <td> <a href="../mahasiswa/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Data</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Logbook Kegiatan</th>
@@ -89,7 +89,10 @@ $_SESSION['id_formulir'] = $id_formulir;
                                 </tr>
                                 <tr>
                                     <th>Umpan Balik</th>
-                                    <td><a href="../mahasiswa/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                                    <td>
+                                        <a href="../mahasiswa/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Isi Umpan Balik</button></a>
+                                        <a href="../mahasiswa/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Umpan Balik</button></a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Nilai Kegiatan</th>
