@@ -1,12 +1,11 @@
 <?php
-session_start(); //memulai session
-if ($_SESSION['role'] != 'reviewer') { //jika bukan admin, arahkan ke halaman login
+session_start();
+if ($_SESSION['role'] != 'Reviewer') {
     header("Location: login.php");
 }
 
-$id_user = $_SESSION['id_user'];
-$nama = $_SESSION['nama'];
 $nim = $_SESSION['nim_nik'];
+$nama = $_SESSION['nama'];
 include "../koneksi.php";
 ?>
 
@@ -17,25 +16,9 @@ include "../koneksi.php";
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
     <title>Merdeka Belajar Kampus Merdeka</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap.css" rel="stylesheet">
-
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-
 
     <meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard" />
     <link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="assets/npm/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-
-
 
     <!-- Sweet Alert -->
     <link type="text/css" href="../vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
@@ -45,7 +28,31 @@ include "../koneksi.php";
 
     <!-- Volt CSS -->
     <link type="text/css" href="../css/volt.css" rel="stylesheet" />
+
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+
+    <!-- Datatables JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="assets/npm/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+    <!-- Bootstrap 5 CSS -->
 </head>
+<style>
+    .kiri {
+        width: 23%;
+    }
+
+    .tengah {
+        width: 1%;
+    }
+</style>
+
 
 <body>
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
@@ -79,6 +86,7 @@ include "../koneksi.php";
                 </li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
+
                 <li class="nav-item">
                     <span class="sidebar-icon"></span>
                     <span class="sidebar-text">Welcome to MBKM,<br><?= $nama ?><br><?= $nim ?></span>
@@ -97,27 +105,7 @@ include "../koneksi.php";
                     </a>
                 </li>
 
-                <!-- <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-                <li class="nav-item  ">
-                    <a href="../reviewer/template.php?page=data_pendaftar" class="nav-link">
-                        <span class="sidebar-icon">
-                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <span class="sidebar-text">Data pendaftar</span>
-                    </a>
-                </li>
-                <li class="nav-item  ">
-                    <a href="../reviewer/template.php?page=data_pendaftar" class="nav-link">
-                        <span class="sidebar-icon">
-                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                        <span class="sidebar-text">Asesmen Pendaftar</span>
-                    </a>
-                </li> -->
+                <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
                 <!-- Sub Menu -->
                 <li class="nav-item">
@@ -139,7 +127,7 @@ include "../koneksi.php";
                     <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
                         <ul class="flex-column nav">
                             <li class="nav-item">
-                                <a href="../reviewer/template.php?page=data_pendaftar" class="nav-link">
+                                <a href="../reviewer/template.php?page=pendaftar" class="nav-link">
                                     <span class="sidebar-icon">
                                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
@@ -153,30 +141,47 @@ include "../koneksi.php";
                     <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
                         <ul class="flex-column nav">
                             <li class="nav-item">
-                                <a href="../reviewer/template.php?page=hasil_asesmen" class="nav-link">
+                                <a href="../reviewer/template.php?page=setuju" class="nav-link">
                                     <span class="sidebar-icon">
                                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                                             <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                                         </svg>
                                     </span>
-                                    <span class="sidebar-text">Hasil Ajuan</span>
+                                    <span class="sidebar-text">Ajuan Disetujui</span>
                                 </a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
+                        <ul class="flex-column nav">
+                            <li class="nav-item">
+                                <a href="../reviewer/template.php?page=tolak" class="nav-link">
+                                    <span class="sidebar-icon">
+                                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar-text">Ajuan Ditolak</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
                 <li class="nav-item  ">
-                    <a href="../reviewer/template.php?page=penentuan_dospem" class="nav-link">
+                    <a href="../reviewer/template.php?page=assign_dospem" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" clip-rule="evenodd"></path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Pengajuan Dospem</span>
+                        <span class="sidebar-text">Peserta Kegiatan</span>
                     </a>
                 </li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
+
                 <li class="nav-item">
                     <a href="../logout.php" class="nav-link">
                         <span class="sidebar-icon">
@@ -199,22 +204,6 @@ include "../koneksi.php";
         ?>
     </div>
 
-    <!-- <main class="content">
-      <div class="container-fluid">
-
-        <center>
-          <img src="../assets/img/Mahasiswa.png" class="gedung-poltek" alt="">
-        </center>
-        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-          <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-            <li class="breadcrumb-item">
-              <a href="#">
-              </a>
-            </li>
-          </ol>
-        </nav>
-      </div>
-      </div> -->
     <!-- Core -->
     <script src="../vendor/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="../vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -255,12 +244,9 @@ include "../koneksi.php";
 
     <!-- Volt JS -->
     <script src="../assets/js/volt.js"></script>
-    <!-- Datatables JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="assets/npm/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>
 

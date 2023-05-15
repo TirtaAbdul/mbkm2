@@ -20,13 +20,19 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
                 window.location = "../pages/asesmen_simpan.php";
              </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+                alert("Gagal Upload, silahkan ulangi...");
+                </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+        alert("UKURAN FILE TERLALU BESAR!");
+        </script>';
     }
 } else if (isset($_FILES['sksehat']['tmp_name'])) {
     $ukuran = $_FILES['sksehat']['size'];
@@ -45,13 +51,19 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
                 window.location = "../pages/asesmen_simpan.php";
              </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+                alert("Gagal Upload, silahkan ulangi...");
+                </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+        alert("UKURAN FILE TERLALU BESAR!");
+        </script>';
     }
 } else if (isset($_FILES['suratorangtua']['tmp_name'])) {
     $ukuran = $_FILES['suratorangtua']['size'];
@@ -66,17 +78,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_suratortu = '$linksuratorangtua' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['suratpakta']['tmp_name'])) {
     $ukuran = $_FILES['suratpakta']['size'];
@@ -91,17 +109,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_suratpakta = '$linksuratpakta' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['transkipnilai']['tmp_name'])) {
     $ukuran = $_FILES['transkipnilai']['size'];
@@ -116,17 +140,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_transkip = '$linktranskipnilai' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['cv']['tmp_name'])) {
     $ukuran = $_FILES['cv']['size'];
@@ -142,17 +172,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_cv = '$linkcv' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['pelatihan']['tmp_name'])) {
     $ukuran = $_FILES['pelatihan']['size'];
@@ -167,17 +203,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_pelatihan = '$pelatihan' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['produk']['tmp_name'])) {
     $ukuran = $_FILES['produk']['size'];
@@ -192,17 +234,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_produk = '$produk' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 } else if (isset($_FILES['dokumen']['tmp_name'])) {
     $ukuran = $_FILES['dokumen']['size'];
@@ -217,17 +265,23 @@ if (isset($_FILES['tautan_skj']['tmp_name'])) {
             $query  = mysqli_query($koneksi, "UPDATE asesmen SET tautan_dokumen = '$dokumen' WHERE id_pendaftaran = $id");
             if ($query) {
                 echo '<script type="text/javascript">
-            alert("FILE BERHASIL DI UPLOAD!");
-            window.location = "../pages/asesmen_simpan.php";
-         </script>';
+                alert("FILE BERHASIL DI UPLOAD!");
+                window.location = "../pages/asesmen_simpan.php";
+            </script>';
             } else {
-                echo 'Gagal';
+                echo '<script type="text/javascript">
+            alert("Gagal Upload, silahkan ulangi...");
+            </script>';
             }
         } else {
-            echo "FILE GAGAL DI UPLOAD!";
+            echo '<script type="text/javascript">
+        alert("Gagal Upload, silahkan ulangi...");
+        </script>';
         }
     } else {
-        echo "UKURAN FILE TERLALU BESAR!";
+        echo '<script type="text/javascript">
+    alert("UKURAN FILE TERLALU BESAR!");
+    </script>';
     }
 
     //end

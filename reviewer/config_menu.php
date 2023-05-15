@@ -2,40 +2,46 @@
 $page = (isset($_GET['page'])) ? $_GET['page'] : '';
 
 switch ($page) {
-  case 'dashboard': // $page == home (jika isi dari $page adalah home)
-    include "../reviewer/dashboard.php"; // load file home.php yang ada di folder views
+  case 'dashboard':
+    include "../reviewer/dashboard.php";
     break;
-  case 'data_pendaftar': // $page == home (jika isi dari $page adalah home)
-    include "../reviewer/data_pendaftar.php"; // load file home.php yang ada di folder views
+  case 'pendaftar':
+    include "../reviewer/pendaftar.php";
     break;
-  case 'detail_pendaftar':
-    include "../reviewer/detail_pendaftar.php";
+  case 'detail_ajuan':
+    include "../reviewer/detail_ajuan.php";
     break;
-  case 'hasil_asesmen':
-    include "../reviewer/hasil_asesmen.php";
+  case 'data_ajuan':
+    include "../reviewer/data_ajuan.php";
     break;
-  case 'detail_hasil_asesmen':
-    include "../reviewer/detail_hasil_asesmen.php";
+  case 'setuju':
+    include "../reviewer/setuju.php";
     break;
-  case 'penentuan_dospem':
-    include "../reviewer/penentuan_dospem.php";
+  case 'tolak':
+    include "../reviewer/tolak.php";
     break;
-  case 'penetapan_dospem':
-    include "../reviewer/penetapan_dospem.php";
+  case 'assign_dospem':
+    include "../reviewer/assign_dospem.php";
     break;
-
-
-
-
-
-    // case 'case_selanjutnya':
-    // include "views/case_selanjutnya.php";
-    // break;
-
-    // case 'case_selanjutnya':
-    // include "views/case_selanjutnya.php";
-    // break;
-
-    // default: // Ini untuk set default jika isi dari $page tidak ada pada 3 kondisi diatas
-    // include "views/dashboard_jur.php";
+  case 'ajuan_view':
+    include "../reviewer/ajuan_view.php";
+    break;
+  case 'kegiatan':
+    include "../reviewer/kegiatan.php";
+    break;
+  case 'detail_kegiatan':
+    include "../reviewer/detail_kegiatan.php";
+    break;
+  case 'logbook':
+    include "../reviewer/logbook.php";
+    break;
+  case 'laporan_akhir':
+    include "../reviewer/laporan_akhir.php";
+    break;
+  case 'umpan_balik':
+    include "../reviewer/umpan_balik.php";
+    break;
+  case 'umpan_balik_view':
+    include "../reviewer/umpan_balik_view.php";
+    break;
 }

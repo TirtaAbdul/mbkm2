@@ -7,8 +7,14 @@ if (isset($_POST['ajukansekarang'])) {
 
     $query = "UPDATE formulir SET status = 'Diajukan' WHERE id_formulir='$id_formulir'";
     $result = mysqli_query($conn, $query);
+    echo '<script type="text/javascript">
+        alert("SELURUH DATA AJUAN BERHASIL DIAJUKAN!");
+        window.location = "?page=dashboard";
+        </script>';
     if (!$result) {
-        echo "Pengajuan gagal, silahkan ulangi..";
+        '<script type="text/javascript">
+        alert("Pengajuan gagal, silahkan ulangi...");
+        </script>';
     }
 }
 

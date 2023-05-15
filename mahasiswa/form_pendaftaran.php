@@ -75,6 +75,7 @@ if (isset($_POST['updateformulir'])) {
   WHERE id_formulir = '$id_formulir'";
 
   $result0 = mysqli_query($conn, $query0);
+
   if (!$result0) {
     echo "Penghapusan gagal, silahkan ulangi..";
   }
@@ -323,7 +324,7 @@ if (isset($_POST['updateformulir'])) {
             <div class="col-12">
               <div class="modal-footer mt-3">
                 <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir; ?>"><input type="button" value="Kembali" class="btn btn-secondary"></input></a>
-                <input type="submit" name="updateformulir" value="Simpan" class="btn btn-primary"></input>
+                <input type="submit" name="updateformulir" value="Simpan" class="btn btn-primary" onclick="return confirm('Yakin ingin menyimpan Formulir?')"></input>
               </div>
             </div>
           </div>
