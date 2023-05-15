@@ -112,6 +112,8 @@ if (isset($_POST['assigndospem'])) {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Button Detail Kegiatan Peserta -->
+                                            <a href="../reviewer/template.php?page=detail_kegiatan&&id_formulir=<?php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Masuk</button></a>
                                         </td>
                                     </tr>
                             <?php

@@ -195,41 +195,43 @@ if (isset($_POST['updateformulir'])) {
                   <!-- Button Modal Tambah Anggota -->
                   <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#ModalTambahAnggota"><b>+ Tambah</b></button>
                   <!-- Tabel Anggota -->
-                  <table id="example1" class="table table-primary" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>NIM</th>
-                        <th>Nama Anggota</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $noanggota = 1;
-                      $query = "SELECT anggota.id_anggota, anggota.nim_anggota, user.nim_nik, user.nama
+                  <div id="table-employee" class="table-responsive">
+                    <table id="example1" class="table table-primary" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>NIM</th>
+                          <th>Nama Anggota</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $noanggota = 1;
+                        $query = "SELECT anggota.id_anggota, anggota.nim_anggota, user.nim_nik, user.nama
                         FROM anggota
                         LEFT JOIN user
                         ON anggota.nim_anggota=user.nim_nik where anggota.id_formulir=$id_formulir";
-                      $result = mysqli_query($conn, $query);
+                        $result = mysqli_query($conn, $query);
 
-                      if (mysqli_num_rows($result) > 0) {
-                        while ($data = mysqli_fetch_assoc($result)) {
-                      ?>
-                          <tr>
-                            <td><?= $noanggota++; ?></td>
-                            <td><?php echo $data['nim_nik']; ?></td>
-                            <td><?php echo $data['nama']; ?></td>
-                            <td>
-                              <a href="?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>&&hapusanggota=<?= $data['id_anggota'] ?>" onclick="return confirm('Yakin ingin menghapus Anggota?')">
-                                <input type="button" class="btn btn-danger btn-sm" value="Hapus">
-                              </a>
-                            </td>
-                          </tr>
-                      <?php }
-                      } ?>
-                    </tbody>
-                  </table>
+                        if (mysqli_num_rows($result) > 0) {
+                          while ($data = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <tr>
+                              <td><?= $noanggota++; ?></td>
+                              <td><?php echo $data['nim_nik']; ?></td>
+                              <td><?php echo $data['nama']; ?></td>
+                              <td>
+                                <a href="?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>&&hapusanggota=<?= $data['id_anggota'] ?>" onclick="return confirm('Yakin ingin menghapus Anggota?')">
+                                  <input type="button" class="btn btn-danger btn-sm" value="Hapus">
+                                </a>
+                              </td>
+                            </tr>
+                        <?php }
+                        } ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -275,43 +277,45 @@ if (isset($_POST['updateformulir'])) {
                   <!-- Button Modal Matkul Tujuan-->
                   <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#ModalTambahMatkul"><b>+ Tambah</b></button>
                   <!-- Tabel Matkul Tujuan -->
-                  <table id="example2" class="table table-primary" style=" width:100%">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Kode</th>
-                        <th>Mata Kuliah</th>
-                        <th>SKS</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $nomatkul = 1;
-                      $query = "SELECT matkul_tujuan.id_matkul_tujuan, matkul_tujuan.kode_matkul, matkul_prodi.kode_matkul, matkul_prodi.nama_matkul, matkul_prodi.sks
+                  <div id="table-employee" class="table-responsive">
+                    <table id="example2" class="table table-primary" style=" width:100%">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Kode</th>
+                          <th>Mata Kuliah</th>
+                          <th>SKS</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $nomatkul = 1;
+                        $query = "SELECT matkul_tujuan.id_matkul_tujuan, matkul_tujuan.kode_matkul, matkul_prodi.kode_matkul, matkul_prodi.nama_matkul, matkul_prodi.sks
                         FROM matkul_tujuan
                         LEFT JOIN matkul_prodi
                         ON matkul_tujuan.kode_matkul=matkul_prodi.kode_matkul where matkul_tujuan.id_formulir=$id_formulir";
-                      $result = mysqli_query($conn, $query);
+                        $result = mysqli_query($conn, $query);
 
-                      if (mysqli_num_rows($result) > 0) {
-                        while ($data = mysqli_fetch_assoc($result)) {
-                      ?>
-                          <tr>
-                            <td><?= $nomatkul++; ?></td>
-                            <td><?php echo $data['kode_matkul']; ?></td>
-                            <td><?php echo $data['nama_matkul']; ?></td>
-                            <td><?php echo $data['sks']; ?></td>
-                            <td>
-                              <a href="?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>&&hapusmatkul=<?= $data['id_matkul_tujuan'] ?>" onclick="return confirm('Yakin ingin menghapus Mata Kuliah?')">
-                                <input type="button" class="btn btn-danger btn-sm" value="Hapus">
-                              </a>
-                            </td>
-                          </tr>
-                      <?php }
-                      } ?>
-                    </tbody>
-                  </table>
+                        if (mysqli_num_rows($result) > 0) {
+                          while ($data = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <tr>
+                              <td><?= $nomatkul++; ?></td>
+                              <td><?php echo $data['kode_matkul']; ?></td>
+                              <td><?php echo $data['nama_matkul']; ?></td>
+                              <td><?php echo $data['sks']; ?></td>
+                              <td>
+                                <a href="?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>&&hapusmatkul=<?= $data['id_matkul_tujuan'] ?>" onclick="return confirm('Yakin ingin menghapus Mata Kuliah?')">
+                                  <input type="button" class="btn btn-danger btn-sm" value="Hapus">
+                                </a>
+                              </td>
+                            </tr>
+                        <?php }
+                        } ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
             <?php }

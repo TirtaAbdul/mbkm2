@@ -33,51 +33,52 @@ if (isset($_POST['buatajuan'])) {
                         <b>TAMBAH AJUAN</b>
                     </button>
                 </div>
+                <div id="table-employee" class="table-responsive">
+                    <table id="example" class="table table-striped" style="width:100%">
+                        <thead>
+                            <th width="5%">No</th>
+                            <th width="25%">Jenis Kegiatan</th>
+                            <th width="30%">Judul Program</th>
+                            <th width="15%">Tanggal Mulai</th>
+                            <th width="15%">Status</th>
+                            <th width="10%">Detail</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            $query = "SELECT * FROM formulir WHERE nim='$nim' && status!='Peserta Kegiatan'";
+                            $result = mysqli_query($conn, $query);
 
-                <table id="example" class="table table-striped" style="width:100%">
-                    <thead>
-                        <th width="5%">No</th>
-                        <th width="25%">Jenis Kegiatan</th>
-                        <th width="30%">Judul Program</th>
-                        <th width="15%">Tanggal Mulai</th>
-                        <th width="15%">Status</th>
-                        <th width="10%">Detail</th>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        $query = "SELECT * FROM formulir WHERE nim='$nim' && status!='Peserta Kegiatan'";
-                        $result = mysqli_query($conn, $query);
+                            if (mysqli_num_rows($result) > 0) {
 
-                        if (mysqli_num_rows($result) > 0) {
+                                while ($data = mysqli_fetch_assoc($result)) {
+                            ?>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td><?php echo $data['jenis_program']; ?></td>
+                                        <td><?php echo $data['judul_program']; ?></td>
+                                        <td><?php echo $data['tgl_mulai']; ?></td>
+                                        <td><?php echo $data['status']; ?></td>
 
-                            while ($data = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <tr>
-                                    <td><?= $no++; ?></td>
-                                    <td><?php echo $data['jenis_program']; ?></td>
-                                    <td><?php echo $data['judul_program']; ?></td>
-                                    <td><?php echo $data['tgl_mulai']; ?></td>
-                                    <td><?php echo $data['status']; ?></td>
+                                        <td>
+                                            <!-- <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Detail</button></a> -->
+                                            <?php
+                                            $status = $data['status'];
 
-                                    <td>
-                                        <!-- <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Detail</button></a> -->
-                                        <?php
-                                        $status = $data['status'];
-
-                                        if ($status == 'Diajukan') {
-                                            echo '<button class="btn btn-secondary btn-sm" disabled>Detail</button>';
-                                        } else {
-                                            echo '<a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=' . $data['id_formulir'] . '"><button class="btn btn-secondary btn-sm">Detail</button></a>';
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                        } ?>
-                    </tbody>
-                </table>
+                                            if ($status == 'Diajukan') {
+                                                echo '<button class="btn btn-secondary btn-sm" disabled>Detail</button>';
+                                            } else {
+                                                echo '<a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=' . $data['id_formulir'] . '"><button class="btn btn-secondary btn-sm">Detail</button></a>';
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

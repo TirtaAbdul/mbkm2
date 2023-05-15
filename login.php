@@ -17,12 +17,16 @@ if (isset($_POST['login'])) {
         $_SESSION['role'] = $data['role'];
 
         if ($data['role'] == 'Mahasiswa') {
-            header("Location: mahasiswa/template.php?page=dashboard"); //arahkan ke halaman admin jika login sebagai admin
+            header("Location: mahasiswa/template.php?page=dashboard");
         } else if ($data['role'] == 'Reviewer') {
-            header("Location: reviewer/template.php?page=dashboard"); //arahkan ke halaman user jika login sebagai user
+            header("Location: reviewer/template.php?page=dashboard");
+        } else if ($data['role'] == 'Dospem') {
+            header("Location: dospem/template.php?page=dashboard");
         }
     } else {
-        echo "Username atau password salah!";
+        echo '<script type="text/javascript">
+        alert("Username atau Password Salah");
+        </script>';
     }
 }
 ?>

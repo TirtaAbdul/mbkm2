@@ -39,26 +39,27 @@ if (isset($_POST['ajukansekarang'])) {
                     <input type="text" name="id_formulir" value="<?= $id_formulir ?>" hidden>
                     <div><button id="demo" name="ajukansekarang" class="btn btn-success box mb-3" onclick="return confirm('Yakin ingin mengajukan sekarang juga? Setelah diajukan, Anda tidak dapat mengubahnya kembali!')"><b>AJUKAN SEKARANG!</b></button></div>
                 </form>
+                <div id="table-employee" class="table-responsive">
+                    <table id="example" class="table table-striped" style="width:100%">
+                        <tr>
+                            <th>
+                                <h6><b>Tahapan</b></h6>
+                            </th>
+                            <th>
+                                <h6><b>Detail</b></h6>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Formulir Pendaftaran</th>
+                            <td> <a href="../mahasiswa/template.php?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                        </tr>
 
-                <table id="example" class="table table-striped" style="width:100%">
-                    <tr>
-                        <th>
-                            <h6><b>Tahapan</b></h6>
-                        </th>
-                        <th>
-                            <h6><b>Detail</b></h6>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Formulir Pendaftaran</th>
-                        <td> <a href="../mahasiswa/template.php?page=form_pendaftaran&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
-                    </tr>
-
-                    <tr>
-                        <th>Syarat Berkas Portofolio</th>
-                        <td><a href="../mahasiswa/template.php?page=berkas_portofolio&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
-                    </tr>
-                </table>
+                        <tr>
+                            <th>Syarat Berkas Portofolio</th>
+                            <td><a href="../mahasiswa/template.php?page=berkas_portofolio&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

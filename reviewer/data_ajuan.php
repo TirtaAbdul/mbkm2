@@ -7,40 +7,26 @@ if (isset($_POST['setuju2'])) {
     $catatan_tambahan = $_POST['catatan_tambahan'];
     $nik_dospem = $_POST['nik_dospem'];
 
-    $querysetuju2 = "UPDATE review_asesmen SET catatan_tambahan = '$catatan_tambahan' WHERE id_formulir = $id_formulir";
-    $querydospem = "INSERT INTO assign_dospem (`id_formulir`, `nik_dospem`, `status`) VALUES('$id_formulir', '$nik_dospem', '')";
+    $querysetuju2 = "UPDATE review_asesmen 
+    SET catatan_tambahan = '$catatan_tambahan' 
+    WHERE id_formulir = $id_formulir";
+    $querydospem = "INSERT INTO assign_dospem (`id_formulir`, `nik_dospem`, `status`) 
+    VALUES('$id_formulir', '$nik_dospem', '')";
 
     $resultsetuju2 = mysqli_query($conn, $querysetuju2);
     $resultdospem = mysqli_query($conn, $querydospem);
 
     if ($resultsetuju2 && $resultdospem) {
-        $querystatus2 = "UPDATE formulir SET status = 'Disetujui' WHERE id_formulir = $id_formulir";
+        $querystatus2 = "UPDATE formulir SET status = 'Peserta Kegiatan' WHERE id_formulir = $id_formulir";
         $resultstatus2 = mysqli_query($conn, $querystatus2);
         echo '<script type="text/javascript">
         alert("UPDATED: AJUAN BERHASIL DISETUJUI!");
-        window.location = "../reviewer/template.php?page=assign_dospem";
+        window.location = "?page=assign_dospem";
         </script>';
     } else {
-        echo "Gagal Menyetujui Ajuan, silahkan ulangi...";
-    }
-}
-
-if (isset($_POST['tolak2'])) {
-    $id_formulir = $_POST['id_formulir'];
-    $catatan_tambahan = $_POST['catatan_tambahan'];
-
-    $querytolak2 = "UPDATE review_asesmen SET catatan_tambahan = '$catatan_tambahan' WHERE id_formulir = $id_formulir";
-
-    $resulttolak2 = mysqli_query($conn, $querytolak2);
-    if ($querytolak2) {
-        $querystatus2 = "UPDATE formulir SET status = 'Ditolak' WHERE id_formulir = $id_formulir";
-        $resultstatus2 = mysqli_query($conn, $querystatus2);
         echo '<script type="text/javascript">
-        alert("UPDATED: AJUAN BERHASIL DITOLAK!");
-        window.location = "?page=tolak";
+        alert("Gagal Menyetujui Ajuan, silahkan ulangi...");
         </script>';
-    } else {
-        echo "Gagal Menyetujui Ajuan, silahkan ulangi...";
     }
 }
 ?>
@@ -529,10 +515,9 @@ if (isset($_POST['tolak2'])) {
                                         </div>
 
                                         <div class="modal-footer mt-3">
-                                            <button type="submit" name="tolak2" class="btn btn-danger" onclick="return confirm('Yakin ingin menolak ulang ajuan? Setelah ditolak, Anda tidak dapat mengubahnya kembali!')">Tolak Ulang</button>
                                             <!-- Button Modal UPDATE Dospem Assignment -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Setujui Ulang</button>
-                                            <!-- Modal Dospem Assignment -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ubah ke Setujui</button>
+                                            <!-- Modal Update Dospem Assignment -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">

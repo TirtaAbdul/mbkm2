@@ -1,10 +1,10 @@
 <?php
 session_start();
-if ($_SESSION['role'] != 'Reviewer') {
+if ($_SESSION['role'] != 'Dospem') {
     header("Location: login.php");
 }
 
-$nim = $_SESSION['nim_nik'];
+$nik = $_SESSION['nim_nik'];
 $nama = $_SESSION['nama'];
 include "../koneksi.php";
 ?>
@@ -89,13 +89,13 @@ include "../koneksi.php";
 
                 <li class="nav-item">
                     <span class="sidebar-icon"></span>
-                    <span class="sidebar-text">Welcome to MBKM,<br><?= $nama ?><br><?= $nim ?></span>
+                    <span class="sidebar-text">Welcome to MBKM,<br><?= $nama ?><br><?= $nik ?></span>
                     </a>
                 </li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
                 <li class="nav-item  ">
-                    <a href="../reviewer/template.php?page=dashboard" class="nav-link">
+                    <a href="../dospem/template.php?page=dashboard" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
@@ -107,62 +107,14 @@ include "../koneksi.php";
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
-                <!-- Sub Menu -->
-                <li class="nav-item">
-                    <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
-                        <span>
-                            <span class="sidebar-icon">
-                                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" clip-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                            <span class="sidebar-text">Data Pendaftar</span>
-                        </span>
-                        <span class="link-arrow">
-                            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                        </span>
-                    </span>
-                    <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
-                        <ul class="flex-column nav">
-                            <li class="nav-item">
-                                <a href="../reviewer/template.php?page=pendaftar" class="nav-link">
-                                    <span class="sidebar-icon">
-                                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-                                    <span class="sidebar-text">Daftar Ajuan</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false">
-                        <ul class="flex-column nav">
-                            <li class="nav-item">
-                                <a href="../reviewer/template.php?page=tolak" class="nav-link">
-                                    <span class="sidebar-icon">
-                                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="sidebar-text">Ajuan Ditolak</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
                 <li class="nav-item  ">
-                    <a href="../reviewer/template.php?page=assign_dospem" class="nav-link">
+                    <a href="../dospem/template.php?page=bimbing" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" clip-rule="evenodd"></path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Peserta Kegiatan</span>
+                        <span class="sidebar-text">Bimbingan</span>
                     </a>
                 </li>
 
@@ -186,7 +138,7 @@ include "../koneksi.php";
     </div>
 
     <div id="content">
-        <?php include "../reviewer/config_menu.php"; // Load file config.php 
+        <?php include "../dospem/config_menu.php"; // Load file config.php 
         ?>
     </div>
 
