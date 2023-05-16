@@ -565,10 +565,10 @@ if (isset($_POST['tolak'])) {
                                     </table>
                                     <br>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-12">
                                             <p for="catatan">Catatan / Rekomendasi dari Reviewer</p>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-12">
                                             <div class="input-group">
                                                 <textarea class="form-control" name="catatan" id="catatan" rows="3"></textarea>
                                             </div>
@@ -585,6 +585,7 @@ if (isset($_POST['tolak'])) {
                 </div>
             </div>
 
+            <!-- Modal Tentukan Dospem (Add) -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -615,7 +616,7 @@ if (isset($_POST['tolak'])) {
                                     ?>
                                 </select>
                             </div>
-                            <!-- </div> -->
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                                 <button type="submit" name="setuju" class="btn btn-success" onclick="return confirm('Yakin ingin menyetujui Ajuan dan menentukan Dosen Pembimbing?')">Tentukan Dospem</button>

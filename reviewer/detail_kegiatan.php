@@ -2,6 +2,25 @@
 $id_formulir = $_GET['id_formulir'];
 $_SESSION['id_formulir'] = $id_formulir;
 
+if (isset($_POST['ubahdospem'])) {
+    $id_formulir = $_POST['id_formulir'];
+    $nik_dospem = $_POST['nik_dospem'];
+
+    $querydospem = "UPDATE assign_dospem SET nik_dospem = $nik_dospem WHERE id_formulir = $id_formulir";
+
+    $resultdospem = mysqli_query($conn, $querydospem);
+
+    if ($resultdospem) {
+        echo '<script type="text/javascript">
+        alert("UPDATED: BERHASIL MENGUBAH DOSEN PEMBIMBING!");
+        window.location = "?page=peserta_kegiatan";
+        </script>';
+    } else {
+        echo '<script type="text/javascript">
+        alert("Gagal Mengubah Dosen Pembimbing, silahkan ulangi...");
+        </script>';
+    }
+}
 ?>
 
 <main class="content">
@@ -115,7 +134,10 @@ $_SESSION['id_formulir'] = $id_formulir;
                                 </tr>
                                 <tr>
                                     <th>Ubah Dosen Pembimbing</th>
-                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm" disable>Ubah</button></a></td>
+                                    <td>
+                                        <!-- Button Modal Ubah Dospem     -->
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ubah</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Umpan Balik Mahasiswa</th>
@@ -129,6 +151,48 @@ $_SESSION['id_formulir'] = $id_formulir;
                     </div>
                 </div>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tentukan Dospem (Add) -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Penentuan Dospem</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST" accept-charset="utf-8">
+                        <div class="mb-3">
+                            <input name="id_formulir" value="<?= $id_formulir ?>" class="form-control" id="id_formulir" type="text" hidden required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="nik_dospem" class="form-label">Dosen Pembimbing</label>
+                            <select name="nik_dospem" class="form-control mb-3">
+                                <option selected value="" class="text-center">-- Pilih Dosen Pembimbing --</option>
+                                <?php
+                                $query = "SELECT * FROM user WHERE role='Dospem'";
+                                $result = mysqli_query($conn, $query);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    $i = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                        <option value="<?= $row['nim_nik']; ?>"> <?= $row['nim_nik'] ?> -- <?= $row['nama'] ?> </option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                            <button type="submit" name="ubahdospem" class="btn btn-success" onclick="return confirm('Yakin ingin mengubah Dosen Pembimbing?')">Tentukan Dospem</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

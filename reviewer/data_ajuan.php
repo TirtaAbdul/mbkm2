@@ -494,20 +494,20 @@ if (isset($_POST['setuju2'])) {
                                         </table>
                                         <br>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-12">
                                                 <p for="catatan">Catatan / Rekomendasi dari Reviewer</p>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-12">
                                                 <div class="input-group">
                                                     <input class="form-control" id="catatan" type="text" value="<?php echo $dataasesmen['catatan'] ?>" disabled />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            <div class="col-lg-6">
+                                            <div class="col-12">
                                                 <p for="catatan_tambahan">Catatan Tambahan dari Reviewer</p>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-12">
                                                 <div class="input-group">
                                                     <textarea name="catatan_tambahan" class="form-control" id="catatan_tambahan" required></textarea>
                                                 </div>
@@ -515,9 +515,9 @@ if (isset($_POST['setuju2'])) {
                                         </div>
 
                                         <div class="modal-footer mt-3">
-                                            <!-- Button Modal UPDATE Dospem Assignment -->
+                                            <!-- Button Modal ADD DOSPEM dan SETUJUI AJUAN -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ubah ke Setujui</button>
-                                            <!-- Modal Update Dospem Assignment -->
+                                            <!-- Modal Tentukan Dospem (Add) -->
                                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">

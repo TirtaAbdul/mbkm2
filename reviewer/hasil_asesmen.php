@@ -18,7 +18,7 @@ $_SESSION['id_formulir'] = $id_formulir;
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h10 mt-3 mb-5 text-center"><b>Detail Kegiatan</b></h2>
+                <h2 class="h10 mt-3 mb-5 text-center"><b>Hasil Asesmen Ajuan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
@@ -218,20 +218,20 @@ $_SESSION['id_formulir'] = $id_formulir;
                                     </table>
                                     <br>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-12">
                                             <p for="catatan">Catatan / Rekomendasi dari Reviewer</p>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-12">
                                             <div class="input-group">
                                                 <input class="form-control" id="catatan" type="text" value="<?php echo $dataasesmen['catatan'] ?>" disabled />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-lg-6">
+                                        <div class="col-12">
                                             <p for="catatan_tambahan">Catatan Tambahan dari Reviewer</p>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-12">
                                             <div class="input-group">
                                                 <input class="form-control" id="catatan" type="text" value="<?php echo $dataasesmen['catatan_tambahan'] ?>" disabled />
                                             </div>
