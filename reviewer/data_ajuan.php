@@ -21,7 +21,7 @@ if (isset($_POST['setuju2'])) {
         $resultstatus2 = mysqli_query($conn, $querystatus2);
         echo '<script type="text/javascript">
         alert("UPDATED: AJUAN BERHASIL DISETUJUI!");
-        window.location = "?page=assign_dospem";
+        window.location = "?page=peserta_kegiatan";
         </script>';
     } else {
         echo '<script type="text/javascript">

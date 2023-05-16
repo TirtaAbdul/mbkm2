@@ -114,7 +114,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                     <td><a href="../dospem/template.php?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
                                 </tr>
                                 <tr>
-                                    <th>Umpan Balik</th>
+                                    <th>Umpan Balik Mahasiswa</th>
                                     <td>
                                         <button class="btn btn-secondary btn-sm" disabled>Lihat</button>
                                         <a href="../dospem/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>

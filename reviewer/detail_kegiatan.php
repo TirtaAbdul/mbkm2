@@ -23,7 +23,12 @@ $_SESSION['id_formulir'] = $id_formulir;
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
                             <?php
-                            $query = "SELECT * FROM formulir WHERE id_formulir='$id_formulir'";
+                            $query = "SELECT user.nim_nik, user.nama, 
+                            formulir.id_formulir, formulir.nim, formulir.prodi_asal, 
+                            formulir.jenis_program, formulir.judul_program
+                            FROM formulir 
+                            LEFT JOIN user ON formulir.nim = user.nim_nik
+                            WHERE id_formulir='$id_formulir'";
                             $result = mysqli_query($conn, $query);
 
                             if (mysqli_num_rows($result) > 0) {
@@ -34,7 +39,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                         <tr>
                                             <td width="30%"><label for="nama_mhs">Nama Lengkap Mahasiswa</label></td>
                                             <td class="tengah">:</td>
-                                            <td><?php echo $nama; ?></td>
+                                            <td><?php echo $data['nama']; ?></td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label for="nim">Nomor Induk Mahasiswa </label></td>
@@ -87,8 +92,8 @@ $_SESSION['id_formulir'] = $id_formulir;
                         </div>
                     </div>
                 </div>
-                <br>
-                <div class="row mx-3">
+
+                <div class="row mx-3 mt-4">
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
                             <table id="example" class="table table-striped" style="width:100%">
@@ -101,13 +106,22 @@ $_SESSION['id_formulir'] = $id_formulir;
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th>Data Ajuan dan Hasil Asesmen</th>
-                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Data</button></a></td>
+                                    <th>Data Ajuan (Formulir Pendaftaran & Berkas Portofolio)</th>
+                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
                                 </tr>
                                 <tr>
-                                    <th>Umpan Balik</th>
+                                    <th>Hasil Asesmen Ajuan</th>
+                                    <td> <a href="../reviewer/template.php?page=hasil_asesmen&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
+                                </tr>
+                                <tr>
+                                    <th>Ubah Dosen Pembimbing</th>
+                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm" disable>Ubah</button></a></td>
+                                </tr>
+                                <tr>
+                                    <th>Umpan Balik Mahasiswa</th>
                                     <td>
-                                        <a href="../reviewer/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm" disabled>Lihat Data</button></a>
+                                        <button class="btn btn-secondary btn-sm" disabled>Lihat</button>
+                                        <a href="../reviewer/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>
                                     </td>
                                 </tr>
                             </table>
