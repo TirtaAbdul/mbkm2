@@ -23,7 +23,12 @@ $_SESSION['id_formulir'] = $id_formulir;
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
                             <?php
-                            $query = "SELECT * FROM formulir WHERE id_formulir='$id_formulir'";
+                            $query = "SELECT user.nim_nik, user.nama, 
+                            formulir.id_formulir, formulir.nim, formulir.prodi_asal, 
+                            formulir.jenis_program, formulir.judul_program
+                            FROM formulir 
+                            LEFT JOIN user ON formulir.nim = user.nim_nik
+                            WHERE id_formulir='$id_formulir'";
                             $result = mysqli_query($conn, $query);
 
                             if (mysqli_num_rows($result) > 0) {
@@ -34,7 +39,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                         <tr>
                                             <td width="30%"><label for="nama_mhs">Nama Lengkap Mahasiswa</label></td>
                                             <td class="tengah">:</td>
-                                            <td><?php echo $nama; ?></td>
+                                            <td><?php echo $data['nama']; ?></td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label for="nim">Nomor Induk Mahasiswa </label></td>
@@ -57,6 +62,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                             <td><?php echo $data['judul_program'];
                                             }
                                         } ?></td>
+                                        </tr>
                                         </tr>
                                         <?php
                                         $query = "SELECT user.nim_nik, user.nama, assign_dospem.id_formulir, assign_dospem.nik_dospem 
@@ -87,7 +93,6 @@ $_SESSION['id_formulir'] = $id_formulir;
                         </div>
                     </div>
                 </div>
-
                 <div class="row mx-3 mt-4">
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
@@ -101,28 +106,26 @@ $_SESSION['id_formulir'] = $id_formulir;
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th>Data Ajuan (Formulir Pendaftaran & Berkas Portofolio)</th>
-                                    <td> <a href="../mahasiswa/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Data</button></a></td>
-                                </tr>
-                                <tr>
                                     <th>Logbook Kegiatan</th>
-                                    <td> <a href="../mahasiswa/template.php?page=logbook&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                                    <td> <a href="../dospem/template.php?page=logbook&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Laporan Akhir</th>
-                                    <td><a href="../mahasiswa/template.php?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                                    <td><a href="../dospem/template.php?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Umpan Balik</th>
                                     <td>
-                                        <a href="../mahasiswa/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Isi Umpan Balik</button></a>
-                                        <a href="../mahasiswa/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Umpan Balik</button></a>
+                                        <button class="btn btn-secondary btn-sm" disabled>Lihat</button>
+                                        <a href="../dospem/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Instrumentasi Nilai Kegiatan</th>
-                                    <td><button class="btn btn-secondary btn-sm" disabled>Lihat Nilai</button>
-                                        <a href="../mahasiswa/template.php?page=nilai_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Nilai</button></a>
+                                    <th> Instrumentasi Nilai Kegiatan</th>
+                                    <td>
+                                        <a href="../dospem/template.php?page=nilai&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Isi Nilai</button></a>
+                                        <a href="../dospem/template.php?page=nilai_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>
+                                    </td>
                                 </tr>
                             </table>
                         </div>

@@ -35,4 +35,7 @@ switch ($page) {
   case 'umpan_balik_view':
     include "../mahasiswa/umpan_balik_view.php";
     break;
+  case 'nilai_view':
+    include "../mahasiswa/nilai_view.php";
+    break;
 }

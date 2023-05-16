@@ -23,4 +23,10 @@ switch ($page) {
   case 'umpan_balik_view':
     include "../dospem/umpan_balik_view.php";
     break;
+  case 'nilai':
+    include "../dospem/nilai.php";
+    break;
+  case 'nilai_view':
+    include "../dospem/nilai_view.php";
+    break;
 }

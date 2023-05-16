@@ -16,11 +16,13 @@ if (isset($_POST['submitumpanbalik'])) {
     $resultsubmit = mysqli_query($conn, $querysubmit);
     if ($resultsubmit) {
         echo '<script type="text/javascript">
-        alert("DATA BERHASIL DIUPLOAD!");
+        alert("UMPAN BALIK BERHASIL DIKIRIM!");
         window.location = "../mahasiswa/template.php?page=umpan_balik_view&&id_formulir=' . $id_formulir . '";
      </script>';
     } else {
-        echo "Pengumpulan Umpan Balik gagal, silahkan ulangi..";
+        echo '<script type="text/javascript">
+        alert("Pengumpulan Umpan Balik gagal, silahkan ulangi..");
+    </script>';
     }
 }
 ?>
@@ -42,7 +44,7 @@ if (isset($_POST['submitumpanbalik'])) {
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Umpan Balik Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
-                        <div id="employee_table">
+                        <div id="employee_table" class="table-responsive">
                             <?php
                             $query = "SELECT * FROM formulir WHERE id_formulir='$id_formulir'";
                             $result = mysqli_query($conn, $query);
@@ -83,8 +85,8 @@ if (isset($_POST['submitumpanbalik'])) {
                         </div>
                     </div>
                 </div>
-                </br>
-                <div class="row mx-3">
+
+                <div class="row mx-3 mt-4">
                     <div class="card card-body shadow">
                         <form action="" method="post">
                             <h3 class="modal-header mb-3">Parameter Evaluasi</h3>
@@ -146,8 +148,8 @@ if (isset($_POST['submitumpanbalik'])) {
                             </div>
                     </div>
                 </div>
-                <br>
-                <div class="row mx-3">
+
+                <div class="row mx-3 mt-4">
                     <div class="card card-body shadow">
                         <h3 class="modal-header">Kesan dan Pesan terhadap Kegiatan Merdeka Belajar</h3>
                         <div class="row">
@@ -161,7 +163,7 @@ if (isset($_POST['submitumpanbalik'])) {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mt-3">
                                 <p>2. Kendala program merdeka belajar : </p>
                             </div>
                             <div class="col-lg-12">
@@ -171,7 +173,7 @@ if (isset($_POST['submitumpanbalik'])) {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 mt-3">
                                 <p>3. Masukan untuk pengelolaan merdeka belajar : </p>
                             </div>
                             <div class="col-lg-12">
@@ -181,11 +183,10 @@ if (isset($_POST['submitumpanbalik'])) {
                             </div>
                         </div>
                         <br>
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="modal-footer mt-3">
-                                    <input type="submit" value="Submit" name="submitumpanbalik" class="btn btn-info" onclick="return confirm('Yakin ingin mengumpulkan Umpan Balik? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
+                                    <input type="submit" value="SUBMIT" name="submitumpanbalik" class="btn btn-info" onclick="return confirm('Yakin ingin mengumpulkan Umpan Balik? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
                                 </div>
                             </div>
                         </div>

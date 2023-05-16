@@ -22,7 +22,12 @@ $_SESSION['id_formulir'] = $id_formulir;
                     <div class="card card-body shadow">
                         <div id="employee_table" class="table-responsive">
                             <?php
-                            $query = "SELECT * FROM formulir WHERE id_formulir='$id_formulir'";
+                            $query = "SELECT user.nim_nik, user.nama, 
+                             formulir.id_formulir, formulir.nim, formulir.prodi_asal, 
+                             formulir.jenis_program, formulir.judul_program
+                             FROM formulir 
+                             LEFT JOIN user ON formulir.nim = user.nim_nik
+                             WHERE id_formulir='$id_formulir'";
                             $result = mysqli_query($conn, $query);
 
                             if (mysqli_num_rows($result) > 0) {
@@ -33,7 +38,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                         <tr>
                                             <td width="30%"><label for="nama_mhs">Nama Lengkap Mahasiswa</label></td>
                                             <td class="tengah">:</td>
-                                            <td><?php echo $nama; ?></td>
+                                            <td><?php echo $data['nama']; ?></td>
                                         </tr>
                                         <tr>
                                             <td width="30%"><label for="nim">Nomor Induk Mahasiswa </label></td>

@@ -98,35 +98,37 @@ $_SESSION['id_formulir'] = $id_formulir;
                             <div class="mb-3">
                                 <label for="exampleDataList" class="form-label">Daftar Anggota</label>
                                 <!-- Tabel Anggota -->
-                                <table id="example1" class="table table-primary" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>NIM</th>
-                                            <th>Nama Anggota</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $noanggota = 1;
-                                        $query = "SELECT anggota.id_anggota, anggota.nim_anggota, user.nim_nik, user.nama
+                                <div id="table-employee" class="table-responsive">
+                                    <table id="example1" class="table table-primary" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>NIM</th>
+                                                <th>Nama Anggota</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $noanggota = 1;
+                                            $query = "SELECT anggota.id_anggota, anggota.nim_anggota, user.nim_nik, user.nama
                                         FROM anggota
                                         LEFT JOIN user
                                         ON anggota.nim_anggota=user.nim_nik where anggota.id_formulir=$id_formulir";
-                                        $result = mysqli_query($conn, $query);
+                                            $result = mysqli_query($conn, $query);
 
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($data = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                                <tr>
-                                                    <td><?= $noanggota++; ?></t']d>
-                                                    <td><?php echo $data['nim_nik']; ?></td>
-                                                    <td><?php echo $data['nama']; ?></td>
-                                                </tr>
-                                        <?php }
-                                        } ?>
-                                    </tbody>
-                                </table>
+                                            if (mysqli_num_rows($result) > 0) {
+                                                while ($data = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                                    <tr>
+                                                        <td><?= $noanggota++; ?></t']d>
+                                                        <td><?php echo $data['nim_nik']; ?></td>
+                                                        <td><?php echo $data['nama']; ?></td>
+                                                    </tr>
+                                            <?php }
+                                            } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,37 +151,39 @@ $_SESSION['id_formulir'] = $id_formulir;
                             <div class="mb-3">
                                 <label for="exampleDataList" class="form-label">Daftar Mata Kuliah Tujuan</label>
                                 <!-- Tabel Matkul Tujuan -->
-                                <table id="example2" class="table table-primary" style=" width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Kode</th>
-                                            <th>Mata Kuliah</th>
-                                            <th>SKS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $nomatkul = 1;
-                                        $query = "SELECT matkul_tujuan.id_matkul_tujuan, matkul_tujuan.kode_matkul, matkul_prodi.kode_matkul, matkul_prodi.nama_matkul, matkul_prodi.sks
+                                <div id="table-employee" class="table-responsive">
+                                    <table id="example2" class="table table-primary" style=" width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kode</th>
+                                                <th>Mata Kuliah</th>
+                                                <th>SKS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $nomatkul = 1;
+                                            $query = "SELECT matkul_tujuan.id_matkul_tujuan, matkul_tujuan.kode_matkul, matkul_prodi.kode_matkul, matkul_prodi.nama_matkul, matkul_prodi.sks
                                         FROM matkul_tujuan
                                         LEFT JOIN matkul_prodi
                                         ON matkul_tujuan.kode_matkul=matkul_prodi.kode_matkul where matkul_tujuan.id_formulir=$id_formulir";
-                                        $result = mysqli_query($conn, $query);
+                                            $result = mysqli_query($conn, $query);
 
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($data = mysqli_fetch_assoc($result)) {
-                                        ?>
-                                                <tr>
-                                                    <td><?= $nomatkul++; ?></td>
-                                                    <td><?php echo $data['kode_matkul']; ?></td>
-                                                    <td><?php echo $data['nama_matkul']; ?></td>
-                                                    <td><?php echo $data['sks']; ?></td>
-                                                </tr>
-                                        <?php }
-                                        } ?>
-                                    </tbody>
-                                </table>
+                                            if (mysqli_num_rows($result) > 0) {
+                                                while ($data = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                                    <tr>
+                                                        <td><?= $nomatkul++; ?></td>
+                                                        <td><?php echo $data['kode_matkul']; ?></td>
+                                                        <td><?php echo $data['nama_matkul']; ?></td>
+                                                        <td><?php echo $data['sks']; ?></td>
+                                                    </tr>
+                                            <?php }
+                                            } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
                     <?php }
@@ -200,7 +204,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Berkas Portofolio</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
-                        <div id="employee_table">
+                        <div id="employee_table" class="table-responsive">
                             <?php
                             $search = '../mahasiswa/berkas_portofolio/';
 

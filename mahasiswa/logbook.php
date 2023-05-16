@@ -43,7 +43,7 @@ if (isset($_GET['hapuslogbook'])) {
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Logbook Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
-                        <div id="employee_table">
+                        <div id="employee_table" class="table-responsive">
                             <?php
                             $query = "SELECT * FROM formulir WHERE id_formulir='$id_formulir'";
                             $result = mysqli_query($conn, $query);
@@ -54,7 +54,7 @@ if (isset($_GET['hapuslogbook'])) {
                             ?>
                                     <table id="example" class="table table-primary" style="width:100%">
                                         <tr>
-                                            <td width="30%"><label for="nama_mhs">Nama Lengkap </label></td>
+                                            <td width="30%"><label for="nama_mhs">Nama Lengkap Mahasiswa</label></td>
                                             <td class="tengah">:</td>
                                             <td><?php echo $nama; ?></td>
                                         </tr>
@@ -80,12 +80,37 @@ if (isset($_GET['hapuslogbook'])) {
                                             }
                                         } ?></td>
                                         </tr>
+                                        <?php
+                                        $query = "SELECT user.nim_nik, user.nama, assign_dospem.id_formulir, assign_dospem.nik_dospem 
+                                            FROM assign_dospem 
+                                            LEFT JOIN user 
+                                            ON assign_dospem.nik_dospem = user.nim_nik
+                                            WHERE id_formulir='$id_formulir'";
+                                        $result = mysqli_query($conn, $query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+
+                                            while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                                <tr>
+
+                                                    <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
+                                                    <td class="tengah">:</td>
+                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
+                                                    <td class="tengah">:</td>
+                                                    <td><?php echo $data['nama'];
+                                                    }
+                                                } ?></td>
+                                                </tr>
                                     </table>
                         </div>
                     </div>
                 </div>
-                </br>
-                <div class="row mx-3">
+
+                <div class="row mx-3 mt-4">
                     <div class="card card-body shadow">
                         <h3 class="modal-header">Tambah Logbook</h3>
                         <form action="" method="POST">
@@ -112,7 +137,7 @@ if (isset($_GET['hapuslogbook'])) {
             <div class="row mx-3 mt-4">
                 <div class="card card-body shadow">
                     <h3 class="modal-header mb-3">Data Logbook</h3>
-                    <div id="employee_table">
+                    <div id="employee_table" class="table-responsive">
                         <table id="example" class="table table-striped" style="width:100%">
                             <tr>
                                 <th width="5%">No</th>
