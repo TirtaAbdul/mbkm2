@@ -97,6 +97,9 @@ if (isset($_POST['updateformulir'])) {
     <div class="row mx-8">
       <div class="col-12 col-xl-12">
         <div class="card card-body border-0 shadow mb-4">
+          <div class="clearfix">
+            <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+          </div>
           <h2 class="h10 mt-3 mb-5 text-center"><b>Formulir Pendaftaran</b></h2>
           <div class="row mx-3">
             <div class="card card-body shadow">
@@ -113,17 +116,17 @@ if (isset($_POST['updateformulir'])) {
                     <input type="text" name="id_formulir" class="form-control" value="<?= $id_formulir ?>" id="id_formulir" required hidden>
 
                     <div class="mb-3">
-                      <label for="nim" class="form-label">Nomor Induk Mahasiswa</label>
+                      <label for="nim" class="form-label">Nomor Induk Mahasiswa *</label>
                       <input type="text" name="nim" class="form-control" value="<?= $nim ?>" id="nim" placeholder="Masukkan NIK Anda" required readonly>
                     </div>
 
                     <div class="mb-3">
-                      <label for="nama" class="form-label">Nama Lengkap</label>
+                      <label for="nama" class="form-label">Nama Lengkap *</label>
                       <input type="text" name="nama" class="form-control" value="<?= $nama ?>" id="nama" placeholder="Masukkan Nama Anda" required readonly>
                     </div>
 
                     <div class="mb-3">
-                      <label for="prodi_asal" class="form-label">Program Studi Asal</label>
+                      <label for="prodi_asal" class="form-label">Program Studi Asal *</label>
                       <select name="prodi_asal" class="form-control" value="<?= $rowall['prodi_asal'] ?>" id="prodi_asal" required>
                         <option class="text-center" value="">-- Pilih Prodi Asal Anda --</option>
                         <?php
@@ -144,17 +147,17 @@ if (isset($_POST['updateformulir'])) {
                     </div>
 
                     <div class="mb-3">
-                      <label for="jenis_program" class="form-label">Jenis Program Merdeka Belajar</label>
+                      <label for="jenis_program" class="form-label">Jenis Program Merdeka Belajar *</label>
                       <input name="jenis_program" value="<?= $rowall['jenis_program'] ?>" class="form-control" id="jenis_program" type="text" required readonly>
                     </div>
 
                     <div class="mb-3">
-                      <label for="alasan" class="form-label">Alasan Memilih Program</label>
+                      <label for="alasan" class="form-label">Alasan Memilih Program *</label>
                       <textarea class="form-control" value="<?= $rowall['alasan']  ?>" name="alasan" id="alasan" rows="3" required></textarea>
                     </div>
 
                     <div class="mb-3">
-                      <label for="judul_program" class="form-label">Judul Program / Kegiatan</label>
+                      <label for="judul_program" class="form-label">Judul Program / Kegiatan *</label>
                       <input name="judul_program" value="<?= $rowall['judul_program'] ?>" class="form-control" id="judul_program" type="text" required>
                     </div>
 
@@ -164,17 +167,17 @@ if (isset($_POST['updateformulir'])) {
                     </div>
 
                     <div class="mb-3">
-                      <label for="tgl_mulai" class="form-label">tgl Mulai</label>
+                      <label for="tgl_mulai" class="form-label">Tanggal Mulai *</label>
                       <input name="tgl_mulai" value="<?= $rowall['tgl_mulai'] ?>" class="form-control" id="tgl_mulai" type="date" required>
                     </div>
 
                     <div class="mb-3">
-                      <label for="tgl_selesai" class="form-label">tgl Selesai</label>
+                      <label for="tgl_selesai" class="form-label">Tanggal Selesai *</label>
                       <input name="tgl_selesai" value="<?= $rowall['tgl_selesai'] ?>" class="form-control" id="tgl_selesai" type="date" required>
                     </div>
 
                     <div class="mb-3">
-                      <label for="rincian_kegiatan" class="form-label">Rincian Kegiatan Program</label>
+                      <label for="rincian_kegiatan" class="form-label">Rincian Kegiatan Program *</label>
                       <textarea class="form-control" value="<?= $rowall['rincian_kegiatan'] ?>" name="rincian_kegiatan" id="rincian_kegiatan" rows="3" required></textarea>
                     </div>
               </div>
@@ -193,7 +196,7 @@ if (isset($_POST['updateformulir'])) {
                 <div class="mb-3">
                   <label for="exampleDataList" class="form-label">Daftar Anggota</label>
                   <!-- Button Modal Tambah Anggota -->
-                  <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#ModalTambahAnggota"><b>+ Tambah</b></button>
+                  <button type="button" class="btn btn-info btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalTambahAnggota"><b>+ Tambah</b></button>
                   <!-- Tabel Anggota -->
                   <div id="table-employee" class="table-responsive">
                     <table id="example1" class="table table-primary" style="width:100%">
@@ -275,7 +278,7 @@ if (isset($_POST['updateformulir'])) {
                 <div class="mb-3">
                   <label for="exampleDataList" class="form-label">Daftar Mata Kuliah Tujuan</label>
                   <!-- Button Modal Matkul Tujuan-->
-                  <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#ModalTambahMatkul"><b>+ Tambah</b></button>
+                  <button type="button" class="btn btn-info btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalTambahMatkul"><b>+ Tambah</b></button>
                   <!-- Tabel Matkul Tujuan -->
                   <div id="table-employee" class="table-responsive">
                     <table id="example2" class="table table-primary" style=" width:100%">
@@ -327,8 +330,8 @@ if (isset($_POST['updateformulir'])) {
           <div class="row">
             <div class="col-12">
               <div class="modal-footer mt-3">
-                <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir; ?>"><input type="button" value="Kembali" class="btn btn-secondary"></input></a>
-                <input type="submit" name="updateformulir" value="Simpan" class="btn btn-primary" onclick="return confirm('Yakin ingin menyimpan Formulir?')"></input>
+                <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir; ?>"><input type="button" value="KEMBALI" class="btn btn-danger btn-lg"></input></a>
+                <input type="submit" name="updateformulir" value="SIMPAN" class="btn btn-success btn-lg" onclick="return confirm('Yakin ingin menyimpan Formulir?')"></input>
               </div>
             </div>
           </div>
@@ -371,8 +374,8 @@ if (isset($_POST['updateformulir'])) {
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-          <button type="submit" name="tambahanggota" class="btn btn-info">Tambah Anggota</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
+          <button type="submit" name="tambahanggota" class="btn btn-success">Tambah Anggota</button>
         </div>
       </div>
     </div>
@@ -410,7 +413,7 @@ if (isset($_POST['updateformulir'])) {
             </select>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
           <button type="submit" name="tambahmatkul" class="btn btn-success">Tambah Matkul</button>
         </div>
       </div>

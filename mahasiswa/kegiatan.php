@@ -19,10 +19,10 @@
                         <thead>
                             <th width="5%">No</th>
                             <th width="25%">Jenis Kegiatan</th>
-                            <th width="30%">Judul Program</th>
-                            <th width="15%">Tanggal Mulai</th>
-                            <th width="15%">Status</th>
-                            <th width="10%">Detail</th>
+                            <th width="25%">Judul Program</th>
+                            <th width="10%">Tanggal Mulai</th>
+                            <th width="10%">Status</th>
+                            <th width="10%">Aksi</th>
                         </thead>
                         <tbody>
                             <?php
@@ -39,9 +39,19 @@
                                         <td><?php echo $data['jenis_program']; ?></td>
                                         <td><?php echo $data['judul_program']; ?></td>
                                         <td><?php echo $data['tgl_mulai']; ?></td>
-                                        <td><?php echo $data['status']; ?></td>
                                         <td>
-                                            <a href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Masuk</button></a>
+                                            <?php
+                                            $status = $data['status'];
+
+                                            if ($status == 'Peserta Kegiatan') {
+                                                echo 'Sedang Berlangsung';
+                                            } else {
+                                                echo $data['status'];
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Detail</button></a>
                                         </td>
                                     </tr>
                             <?php

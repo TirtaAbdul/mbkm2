@@ -5,6 +5,9 @@ switch ($page) {
   case 'dashboard':
     include "../mahasiswa/dashboard.php";
     break;
+  case 'pengajuan':
+    include "../mahasiswa/pengajuan.php";
+    break;
   case 'detail_ajuan':
     include "../mahasiswa/detail_ajuan.php";
     break;

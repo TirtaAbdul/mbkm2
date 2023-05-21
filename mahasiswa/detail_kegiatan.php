@@ -18,6 +18,9 @@ $_SESSION['id_formulir'] = $id_formulir;
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=kegiatan" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Detail Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -74,12 +77,12 @@ $_SESSION['id_formulir'] = $id_formulir;
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -97,32 +100,33 @@ $_SESSION['id_formulir'] = $id_formulir;
                                         <h6><b>Dokumentasi</b></h6>
                                     </th>
                                     <th>
-                                        <h6><b>Detail</b></h6>
+                                        <h6><b>Aksi</b></h6>
                                     </th>
                                 </tr>
                                 <tr>
                                     <th>Data Ajuan (Formulir Pendaftaran & Berkas Portofolio)</th>
-                                    <td> <a href="../mahasiswa/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Data</button></a></td>
+                                    <td> <a href="../mahasiswa/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Logbook Kegiatan</th>
-                                    <td> <a href="../mahasiswa/template.php?page=logbook&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                                    <td> <a href="../mahasiswa/template.php?page=logbook&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Laporan Akhir</th>
-                                    <td><a href="../mahasiswa/template.php?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat / Isi</button></a></td>
+                                    <td><a href="../mahasiswa/template.php?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Umpan Balik</th>
                                     <td>
-                                        <a href="../mahasiswa/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Isi Umpan Balik</button></a>
-                                        <a href="../mahasiswa/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Umpan Balik</button></a>
+                                        <a href="../mahasiswa/template.php?page=umpan_balik&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Isi</button></a>
+                                        <a href="../mahasiswa/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Instrumentasi Nilai Kegiatan</th>
-                                    <td><button class="btn btn-secondary btn-sm" disabled>Lihat Nilai</button>
-                                        <a href="../mahasiswa/template.php?page=nilai_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat Nilai</button></a>
+                                    <td>
+                                        <button class="btn btn-secondary btn-sm" disabled>Detail</button>
+                                        <a href="../mahasiswa/template.php?page=nilai_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a>
                                 </tr>
                             </table>
                         </div>

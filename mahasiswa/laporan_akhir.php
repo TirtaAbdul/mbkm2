@@ -64,6 +64,9 @@ if (isset($_GET['hapuslaporanakhir'])) {
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Laporan Akhir</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -121,12 +124,12 @@ if (isset($_GET['hapuslaporanakhir'])) {
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -138,15 +141,50 @@ if (isset($_GET['hapuslaporanakhir'])) {
                 <div class="row mx-3">
                     <div class="card card-body shadow">
                         <h3 class="modal-header">Upload Laporan</h3>
+                        <!-- Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Syarat & Ketentuan File Dokumen
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Harap memenuhi setiap syarat dan ketentuan di bawah ini!</strong><br><br>
+                                        <div class="table-responsive">
+                                            <table class="table table-dark">
+                                                <tr>
+                                                    <td>Ukuran (size) File</td>
+                                                    <td>: </td>
+                                                    <td>Maksimal 5 MB</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Jenis File </td>
+                                                    <td>: </td>
+                                                    <td>PDF, DOC, DOCS, JPG, JPEG, PNG</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ekstensi File </td>
+                                                    <td>: </td>
+                                                    <td>.pdf, .doc, .docs, .jpg, .jpeg, .png</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <input type="text" name="id_formulir" id="id_formulir" value="<?= $id_formulir ?>" hidden required>
                             <div class="mb-3">
-                                <label for="file">File (Max size : 5 MB)</label>
-                                <p><input type="file" name="file" id="file" accept="application/pdf, application/doc, application/docx, image/jpeg, image/jpg, image/png"></p>
+                                <label for="file">File Dokumen</label>
+                                <p><input type="file" class="form-control" name="file" id="file" accept="application/pdf, application/doc, application/docx, image/jpeg, image/jpg, image/png" required></p>
                             </div>
                             <div class="mb-3">
                                 <label for="jenis_dokumen">Jenis Dokumen</label>
-                                <input placeholder="Format dokumen (pdf, doc, docx, png, jpg)" name="jenis_dokumen" id="jenis_dokumen" class="form-control" id="jenis_dokumen" type="text" required />
+                                <input placeholder="Format dokumen (pdf, doc, docx, jpg, jpeg, png)" name="jenis_dokumen" id="jenis_dokumen" class="form-control" id="jenis_dokumen" type="text" required />
                             </div>
                             <div class="mb-3">
                                 <label for="nama_dokumen">Nama Dokumen</label>
@@ -155,7 +193,7 @@ if (isset($_GET['hapuslaporanakhir'])) {
                             <div class="row">
                                 <div class="col-12">
                                     <div class="modal-footer mt-3">
-                                        <input type="submit" value="Upload" name="tambahlaporanakhir" class="btn btn-info">
+                                        <input type="submit" value="UPLOAD" name="tambahlaporanakhir" class="btn btn-info">
                                     </div>
                                 </div>
                         </form>

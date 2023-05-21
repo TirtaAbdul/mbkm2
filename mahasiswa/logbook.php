@@ -5,7 +5,9 @@ $_SESSION['id_formulir'] = $id_formulir;
 if (isset($_POST['tambahlogbook'])) {
     $id_formulir = ($_POST['id_formulir']);
     $tanggal = ($_POST['tanggal']);
-    $kegiatan = ($_POST['kegiatan']);
+    $kegiatan = $_POST['kegiatan'];
+    $kegiatan = addcslashes($_POST['kegiatan'], '\'');
+    // $kegiatanb = htmlspecialchars($_POST['kegiatan'], ENT_QUOTES);
 
     $queryadd = "INSERT INTO `logbook` (`id_logbook`, `id_formulir`, `tanggal`, `kegiatan`) VALUES (NULL, '$id_formulir', '$tanggal', '$kegiatan')";
     $resultadd = mysqli_query($conn, $queryadd);
@@ -40,6 +42,9 @@ if (isset($_GET['hapuslogbook'])) {
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Logbook Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -96,12 +101,12 @@ if (isset($_GET['hapuslogbook'])) {
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -121,12 +126,12 @@ if (isset($_GET['hapuslogbook'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="Kegiatan" class="form-label">Rincian Kegiatan</label>
-                                <textarea placeholder="Uraikan kegiatan yang anda lakukan" name="kegiatan" class="form-control" id="kegiatan" type="text" required></textarea>
+                                <textarea rows="4" placeholder="Uraikan progress / kegiatan yang anda lakukan" name="kegiatan" class="form-control" id="kegiatan" required></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="modal-footer mt-3">
-                                        <input type="submit" value="Tambah" name="tambahlogbook" class="btn btn-info"></input>
+                                        <input type="submit" value="TAMBAH" name="tambahlogbook" class="btn btn-info"></input>
                                     </div>
                                 </div>
                         </form>

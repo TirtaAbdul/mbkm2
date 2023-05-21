@@ -41,6 +41,9 @@ if (isset($_POST['submitumpanbalik'])) {
     <div class="row mx-3">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Umpan Balik Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -81,6 +84,31 @@ if (isset($_POST['submitumpanbalik'])) {
                                             }
                                         } ?></td>
                                         </tr>
+                                        <?php
+                                        $query = "SELECT user.nim_nik, user.nama, assign_dospem.id_formulir, assign_dospem.nik_dospem 
+                                            FROM assign_dospem 
+                                            LEFT JOIN user 
+                                            ON assign_dospem.nik_dospem = user.nim_nik
+                                            WHERE id_formulir='$id_formulir'";
+                                        $result = mysqli_query($conn, $query);
+
+                                        if (mysqli_num_rows($result) > 0) {
+
+                                            while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                                <tr>
+
+                                                    <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
+                                                    <td class="tengah">:</td>
+                                                    <td><?php echo $data['nama']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
+                                                    <td class="tengah">:</td>
+                                                    <td><?php echo $data['nik_dospem'];
+                                                    }
+                                                } ?></td>
+                                                </tr>
                                     </table>
                         </div>
                     </div>
@@ -182,14 +210,16 @@ if (isset($_POST['submitumpanbalik'])) {
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="modal-footer mt-3">
-                                    <input type="submit" value="SUBMIT" name="submitumpanbalik" class="btn btn-info" onclick="return confirm('Yakin ingin mengumpulkan Umpan Balik? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
-                                </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="modal-footer mt-3">
+                                <a class="btn btn-danger btn-lg" href="../mahasiswa/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">KEMBALI</a>
+                                <input type="submit" value="SUBMIT" name="submitumpanbalik" class="btn btn-success btn-lg" onclick="return confirm('Yakin ingin mengumpulkan Umpan Balik? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
                             </div>
                         </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
+            </div>
