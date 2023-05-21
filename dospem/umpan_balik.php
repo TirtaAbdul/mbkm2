@@ -17,6 +17,9 @@ $_SESSION['id_formulir'] = $id_formulir;
     <div class="row mx-3">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../dospem/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Umpan Balik Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -78,12 +81,12 @@ $_SESSION['id_formulir'] = $id_formulir;
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>

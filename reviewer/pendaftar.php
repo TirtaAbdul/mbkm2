@@ -33,18 +33,18 @@ if (isset($_POST['buatajuan'])) {
                         <thead>
                             <th>No</th>
                             <th>NIM</th>
-                            <th>Nama Mahasiswa</th>
-                            <th>Program Studi</th>
-                            <th>Jenis Program</th>
-                            <th>Judul Program</th>
-                            <th>Tgl Mulai</th>
+                            <th>Nama</th>
+                            <th>Prodi</th>
+                            <th>Jenis Prog</th>
+                            <th>Judul Prog</th>
+                            <th>Tgl/Waktu Ajuan</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            $query = "SELECT user.nim_nik, user.nama, formulir.id_formulir, formulir.prodi_asal, formulir.jenis_program, formulir.judul_program, formulir.tgl_mulai, formulir.status 
+                            $query = "SELECT user.nim_nik, user.nama, formulir.id_formulir, formulir.prodi_asal, formulir.jenis_program, formulir.judul_program, formulir.tgl_mulai, formulir.tgl_ajuan, formulir.status 
                         FROM formulir 
                         LEFT JOIN user 
                         ON formulir.nim = user.nim_nik WHERE formulir.status = 'Diajukan'";
@@ -61,7 +61,7 @@ if (isset($_POST['buatajuan'])) {
                                         <td><?php echo $data['prodi_asal']; ?></td>
                                         <td><?php echo $data['jenis_program']; ?></td>
                                         <td><?php echo $data['judul_program']; ?></td>
-                                        <td><?php echo $data['tgl_mulai']; ?></td>
+                                        <td><?php echo $data['tgl_ajuan']; ?></td>
                                         <td><?php echo $data['status']; ?></td>
                                         <td>
                                             <a href="../reviewer/template.php?page=detail_ajuan&&id_formulir=<?= $data['id_formulir'] ?>"><button class="btn btn-secondary btn-sm">Detail</button></a>

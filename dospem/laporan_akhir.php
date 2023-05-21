@@ -18,6 +18,9 @@ $_SESSION['id_formulir'] = $id_formulir;
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../dospem/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Laporan Akhir</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -80,12 +83,12 @@ $_SESSION['id_formulir'] = $id_formulir;
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -107,6 +110,7 @@ $_SESSION['id_formulir'] = $id_formulir;
                                 </tr>
                                 </thead>
                                 <?php
+                                $no = 1;
                                 $search = '../mahasiswa/berkas_laporanakhir/';
                                 $query = "SELECT * FROM laporan_akhir WHERE id_formulir='$id_formulir'";
                                 $result = mysqli_query($conn, $query);
@@ -121,9 +125,6 @@ $_SESSION['id_formulir'] = $id_formulir;
                                             <td><?= $data['nama_dokumen']; ?></td>
                                             <td>
                                                 <a href="../mahasiswa/berkas_laporanAkhir/<?php echo str_replace($search, '', $data['nama_dokumen']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                <a href="?page=laporan_akhir&&id_formulir=<?= $id_formulir ?>&&hapuslaporanakhir=<?= $data['id_laporan_akhir'] ?>" onclick="return confirm('Yakin ingin menghapus Laporan?')">
-                                                    <input type="button" class="btn btn-danger btn-sm" value="Hapus">
-                                                </a>
                                             </td>
                                         </tr>
                                 <?php

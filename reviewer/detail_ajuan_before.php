@@ -112,9 +112,6 @@ if (isset($_POST['tolak'])) {
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
-                <div class="clearfix">
-                    <a class="btn btn-danger btn-lg float-end" href="../reviewer/template.php?page=pendaftar" role="button">Keluar (X)</a>
-                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Formulir Pendaftaran</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -341,162 +338,231 @@ if (isset($_POST['tolak'])) {
         </div>
     </div>
 
-    <!-- Form Asesmen Portofolio -->
+    <!-- Asesmen Portofolio -->
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h10 mt-3 mb-5 text-center"><b>Form Asesmen Formulir dan Portofolio</b></h2>
+                <h2 class="h10 mt-3 mb-5 text-center"><b>Berkas Portofolio</b></h2>
+                <div class="row mx-3">
+                    <div class="card card-body shadow">
+                        <div id="employee_table" class="table-responsive">
+                            <?php
+                            $search = '../mahasiswa/berkas_portofolio/';
+
+                            $queryportofolio = "SELECT * FROM formulir WHERE id_formulir=$id_formulir";
+                            $resultportofolio = mysqli_query($conn, $queryportofolio);
+
+                            if (mysqli_num_rows($resultportofolio) > 0) {
+
+                                while ($dataportofolio = mysqli_fetch_assoc($resultportofolio)) {
+                            ?>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Nama Dokumen</th>
+                                                <th scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Surat Rekomendasi Perguruan Tinggi / Jurusan Asal</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_skj']) && str_replace($search, '', $dataportofolio['tautan_skj']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_skj']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Surat Keterangan Sehat</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_sksehat']) && str_replace($search, '', $dataportofolio['tautan_sksehat']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_sksehat']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Surat Persetujuan dari Orang Tua</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_suratortu']) && str_replace($search, '', $dataportofolio['tautan_suratortu']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_suratortu']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Surat Pakta Integritas</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_suratpakta']) && str_replace($search, '', $dataportofolio['tautan_suratpakta']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_suratpakta']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Transkip Nilai</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_transkip']) && str_replace($search, '', $dataportofolio['tautan_transkip']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_transkip']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Biodata / Curriculum Vitae</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_cv']) && str_replace($search, '', $dataportofolio['tautan_cv']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_cv']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>Sertifikat Pelatihan / Workshop</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_pelatihan']) && str_replace($search, '', $dataportofolio['tautan_pelatihan']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_pelatihan']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>Karya Tulis / Produk</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_produk']) && str_replace($search, '', $dataportofolio['tautan_produk']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_produk']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>Dokumen Lain</td>
+                                                <td>
+                                                    <div class="col-md-6">
+                                                        <label for="file"></label>
+                                                        <?php if (isset($dataportofolio['tautan_dokumen_lain']) && str_replace($search, '', $dataportofolio['tautan_dokumen_lain']) != '') { ?>
+                                                            <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_dokumen_lain']); ?>" class="btn btn-info btn-sm">Lihat</a>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    </table>
+                            <?php }
+                            } ?>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-8">
+        <div class="col-12 col-xl-12">
+            <div class="card card-body border-0 shadow mb-4">
+                <h2 class="h10 mt-3 mb-5 text-center"><b>Asesmen Formulir dan Portofolio</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
                         <div id="employee_table">
                             <div class="table-responsive">
                                 <form action="" method="POST" accept-charset="utf-8">
                                     <input type="text" name="id_formulir" class="form-control" value="<?= $id_formulir ?>" id="id_formulir" required hidden>
-                                    <?php
-                                    $search = '../mahasiswa/berkas_portofolio/';
-
-                                    $queryportofolio = "SELECT * FROM formulir WHERE id_formulir=$id_formulir";
-                                    $resultportofolio = mysqli_query($conn, $queryportofolio);
-
-                                    if (mysqli_num_rows($resultportofolio) > 0) {
-
-                                        while ($dataportofolio = mysqli_fetch_assoc($resultportofolio)) {
-                                    ?>
-                                            <table class="table table-striped table-bordered">
-                                                <tr>
-                                                    <th rowspan="2" class="align-middle"><b>No<b></th>
-                                                    <th rowspan="2" class="align-middle"><b>Jenis Kegiatan / Dokumen<b></th>
-                                                    <th rowspan="2" class="align-middle"><b>File Dokumen<b></th>
-                                                    <th colspan="2" class="text-center"><b>Keabsahan Bukti<b></th>
-                                                </tr>
-                                                <tr>
-                                                    <th>Valid</th>
-                                                    <th>Tidak Valid</th>
-                                                </tr>
-                                                <td>1</td>
-                                                <td colspan="2" style="text-align: left">Formulir Pendaftaran (Di atas)</td>
-                                                <td><input type="radio" id="1" name="formulir" value="2"></td>
-                                                <td><input type="radio" id="1" name="formulir" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td style="text-align: left">Surat Rekomendasi Perguruan Tinggi / Jurusan Asal</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_skj']) && str_replace($search, '', $dataportofolio['tautan_skj']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_skj']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="2" name="skj" value="2"></td>
-                                                    <td><input type="radio" id="2" name="skj" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td style="text-align: left">Surat Keterangan Sehat</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_sksehat']) && str_replace($search, '', $dataportofolio['tautan_sksehat']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_sksehat']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="3" name="sksehat" value="2"></td>
-                                                    <td><input type="radio" id="3" name="sksehat" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td style="text-align: left">Surat Persetujuan dari Orang Tua</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_suratortu']) && str_replace($search, '', $dataportofolio['tautan_suratortu']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_suratortu']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="4" name="suratortu" value="2"></td>
-                                                    <td><input type="radio" id="4" name="suratortu" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td style="text-align: left">Surat Pakta Integritas</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_suratpakta']) && str_replace($search, '', $dataportofolio['tautan_suratpakta']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_suratpakta']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="5" name="suratpakta" value="2"></td>
-                                                    <td><input type="radio" id="5" name="suratpakta" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                    <td style="text-align: left">Transkrip Nilai</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_transkip']) && str_replace($search, '', $dataportofolio['tautan_transkip']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_transkip']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="6" name="transkipnilai" value="2"></td>
-                                                    <td><input type="radio" id="6" name="transkipnilai" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td style="text-align: left" colspan="4"><strong><b>Tambahan</b></strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>7</td>
-                                                    <td style="text-align: left">Biodata / Curriculum Vitae</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_cv']) && str_replace($search, '', $dataportofolio['tautan_cv']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_cv']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="7" name="cv" value="2"></td>
-                                                    <td><input type="radio" id="7" name="cv" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>8</td>
-                                                    <td style="text-align: left">Sertifikat Pelatihan / Workshop</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_pelatihan']) && str_replace($search, '', $dataportofolio['tautan_pelatihan']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_pelatihan']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="8" name="pelatihan" value="2"></td>
-                                                    <td><input type="radio" id="8" name="pelatihan" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>9</td>
-                                                    <td style="text-align: left">Karya Tulis / Produk</td>
-                                                    <td>
-                                                        <div class="col-md-6">
-                                                            <label for="file"></label>
-                                                            <?php if (isset($dataportofolio['tautan_produk']) && str_replace($search, '', $dataportofolio['tautan_produk']) != '') { ?>
-                                                                <a href="../mahasiswa/berkas_portofolio/<?php echo str_replace($search, '', $dataportofolio['tautan_produk']); ?>" class="btn btn-info btn-sm">Lihat</a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </td>
-                                                    <td><input type="radio" id="9" name="produk" value="2"></td>
-                                                    <td><input type="radio" id="9" name="produk" value="1"></td>
-                                                </tr>
-                                            </table>
-                                    <?php }
-                                    } ?>
+                                    <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Jenis Kegiatan / Dokumen</th>
+                                            <th colspan="2">Keabsahan Bukti</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Valid</th>
+                                            <th>Tidak Valid</th>
+                                        </tr>
+                                        <td>1</td>
+                                        <td style="text-align: left">Formulir Pendaftaran</td>
+                                        <td><input type="radio" id="1" name="formulir" value="2"></td>
+                                        <td><input type="radio" id="1" name="formulir" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td style="text-align: left">Surat Rekomendasi Perguruan Tinggi / Jurusan Asal</td>
+                                            <td><input type="radio" id="2" name="skj" value="2"></td>
+                                            <td><input type="radio" id="2" name="skj" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td style="text-align: left">Surat Keterangan Sehat</td>
+                                            <td><input type="radio" id="3" name="sksehat" value="2"></td>
+                                            <td><input type="radio" id="3" name="sksehat" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td style="text-align: left">Surat Persetujuan dari Orang Tua</td>
+                                            <td><input type="radio" id="4" name="suratortu" value="2"></td>
+                                            <td><input type="radio" id="4" name="suratortu" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td style="text-align: left">Surat Pakta Integritas</td>
+                                            <td><input type="radio" id="5" name="suratpakta" value="2"></td>
+                                            <td><input type="radio" id="5" name="suratpakta" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td style="text-align: left">Transkrip Nilai</td>
+                                            <td><input type="radio" id="6" name="transkipnilai" value="2"></td>
+                                            <td><input type="radio" id="6" name="transkipnilai" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="text-align: left"><strong>Tambahan</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td style="text-align: left">Biodata / Curriculum Vitae</td>
+                                            <td><input type="radio" id="7" name="cv" value="2"></td>
+                                            <td><input type="radio" id="7" name="cv" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td style="text-align: left">Sertifikat Pelatihan / Workshop</td>
+                                            <td><input type="radio" id="8" name="pelatihan" value="2"></td>
+                                            <td><input type="radio" id="8" name="pelatihan" value="1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td style="text-align: left">Karya Tulis / Produk</td>
+                                            <td><input type="radio" id="9" name="produk" value="2"></td>
+                                            <td><input type="radio" id="9" name="produk" value="1"></td>
+                                        </tr>
+                                    </table>
                                     <br>
                                     <div class="row">
                                         <div class="col-12">
@@ -504,14 +570,14 @@ if (isset($_POST['tolak'])) {
                                         </div>
                                         <div class="col-12">
                                             <div class="input-group">
-                                                <textarea class="form-control" name="catatan" id="catatan" rows="3" required></textarea>
+                                                <textarea class="form-control" name="catatan" id="catatan" rows="3"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer mt-3">
-                                        <button type="submit" name="tolak" class="btn btn-danger btn-lg" onclick="return confirm('Yakin ingin menolak ajuan? Setelah ditolak, Anda tidak dapat mengubahnya kembali!')">TOLAK</button>
+                                        <button type="submit" name="tolak" class="btn btn-danger" onclick="return confirm('Yakin ingin menolak ajuan? Setelah ditolak, Anda tidak dapat mengubahnya kembali!')">TOLAK</button>
                                         <!-- Button Modal SETUJU dan ADD DOSPEM -->
-                                        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">SETUJUI</button>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">SETUJUI</button>
                                     </div>
                             </div>
                         </div>

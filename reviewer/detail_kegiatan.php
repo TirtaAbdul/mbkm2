@@ -37,6 +37,9 @@ if (isset($_POST['ubahdospem'])) {
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../reviewer/template.php?page=peserta_kegiatan" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Detail Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -98,12 +101,12 @@ if (isset($_POST['ubahdospem'])) {
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -121,29 +124,29 @@ if (isset($_POST['ubahdospem'])) {
                                         <h6><b>Dokumentasi</b></h6>
                                     </th>
                                     <th>
-                                        <h6><b>Detail</b></h6>
+                                        <h6><b>Aksi</b></h6>
                                     </th>
                                 </tr>
                                 <tr>
                                     <th>Data Ajuan (Formulir Pendaftaran & Berkas Portofolio)</th>
-                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
+                                    <td> <a href="../reviewer/template.php?page=ajuan_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Hasil Asesmen Ajuan</th>
-                                    <td> <a href="../reviewer/template.php?page=hasil_asesmen&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a></td>
+                                    <td> <a href="../reviewer/template.php?page=hasil_asesmen&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a></td>
                                 </tr>
                                 <tr>
                                     <th>Ubah Dosen Pembimbing</th>
                                     <td>
                                         <!-- Button Modal Ubah Dospem     -->
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Ubah</button>
+                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Umpan Balik Mahasiswa</th>
                                     <td>
-                                        <button class="btn btn-secondary btn-sm" disabled>Lihat</button>
-                                        <a href="../reviewer/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Lihat</button></a>
+                                        <button class="btn btn-secondary btn-sm" disabled>Detail</button>
+                                        <a href="../reviewer/template.php?page=umpan_balik_view&&id_formulir=<?= $id_formulir ?>"><button class="btn btn-secondary btn-sm">Detail</button></a>
                                     </td>
                                 </tr>
                             </table>
@@ -188,7 +191,7 @@ if (isset($_POST['ubahdospem'])) {
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
                             <button type="submit" name="ubahdospem" class="btn btn-success" onclick="return confirm('Yakin ingin mengubah Dosen Pembimbing?')">Tentukan Dospem</button>
                         </div>
                     </form>

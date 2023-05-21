@@ -19,12 +19,12 @@
                         <thead>
                             <th>No</th>
                             <th>NIM Mhs</th>
-                            <th>Program Studi</th>
-                            <th>Jenis Program</th>
+                            <th>Prodi</th>
+                            <th>Jenis Prog</th>
                             <th>NIK Dospem</th>
                             <th>Nama Dospem</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </thead>
                         <tbody>
                             <?php
@@ -52,7 +52,7 @@
                                         <td><?php echo $data['status']; ?></td>
                                         <td>
                                             <!-- Button Detail Kegiatan Peserta -->
-                                            <a href="../reviewer/template.php?page=detail_kegiatan&&id_formulir=<?php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Masuk</button></a>
+                                            <a href="../reviewer/template.php?page=detail_kegiatan&&id_formulir=<?php echo $data['id_formulir']; ?>"><button class="btn btn-secondary btn-sm">Detail</button></a>
                                         </td>
                                     </tr>
                             <?php

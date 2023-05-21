@@ -38,6 +38,9 @@ if (isset($_POST['submitnilai'])) {
     <div class="row mx-8">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
+                <div class="clearfix">
+                    <a class="btn btn-danger btn-lg float-end" href="../dospem/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+                </div>
                 <h2 class="h10 mt-3 mb-5 text-center"><b>Instrumentasi Nilai Kegiatan</b></h2>
                 <div class="row mx-3">
                     <div class="card card-body shadow">
@@ -100,12 +103,12 @@ if (isset($_POST['submitnilai'])) {
 
                                                     <td width="30%"><label for="jenis_program">Nama Lengkap Dosen Pembimbing </label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nik_dospem']; ?></td>
+                                                    <td><?php echo $data['nama']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%"><label for="jenis_program">Nomor Induk Dosen Pembimbing</label></td>
                                                     <td class="tengah">:</td>
-                                                    <td><?php echo $data['nama'];
+                                                    <td><?php echo $data['nik_dospem'];
                                                     }
                                                 } ?></td>
                                                 </tr>
@@ -171,7 +174,8 @@ if (isset($_POST['submitnilai'])) {
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="modal-footer mt-3">
-                                            <input type="submit" value="SUBMIT" name="submitnilai" class="btn btn-info" onclick="return confirm('Yakin ingin mengumpulkan Nilai? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
+                                            <a class="btn btn-danger btn-lg" href="../dospem/template.php?page=detail_kegiatan&&id_formulir=<?= $id_formulir ?>" role="button">KEMBALI</a>
+                                            <input type="submit" value="SUBMIT" name="submitnilai" class="btn btn-success btn-lg" onclick="return confirm('Yakin ingin mengumpulkan Nilai? Setelah dikumpulkan, Anda tidak dapat mengubahnya kembali!')"></input>
                                         </div>
                                     </div>
                                 </div>
