@@ -13,6 +13,7 @@ include "../koneksi.php";
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="../css/perbaikan.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
     <title>Merdeka Belajar Kampus Merdeka</title>

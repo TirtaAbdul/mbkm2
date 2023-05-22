@@ -15,6 +15,7 @@ if (isset($_POST['buatajuan'])) {
 <!-- Isi Konten -->
 <main class="content">
 
+
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
             <li class="breadcrumb-item">
@@ -27,9 +28,9 @@ if (isset($_POST['buatajuan'])) {
     <div class="row mx-3">
         <div class="col-12 col-xl-12">
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h10 mt-3 mb-5 text-center"><b>Daftar dan Status Ajuan</b></h2>
+                <h2 class="h10 mt-3 mb-3 text-center"><b>Daftar dan Status Ajuan</b></h2>
                 <div class="my-3">
-                    <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-info" id="btnaju" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <b>BUAT AJUAN BARU</b>
                     </button>
                 </div>
