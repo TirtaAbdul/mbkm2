@@ -98,7 +98,7 @@ if (isset($_POST['updateformulir'])) {
       <div class="col-12 col-xl-12">
         <div class="card card-body border-0 shadow mb-4">
           <div class="clearfix">
-            <a class="btn btn-danger btn-lg float-end" href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
+            <a class="btn btn-danger btn-sm float-end" href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir ?>" role="button">Keluar (X)</a>
           </div>
           <h2 class="h10 mt-3 mb-5 text-center"><b>Formulir Pendaftaran</b></h2>
           <div class="row mx-3">
@@ -198,8 +198,8 @@ if (isset($_POST['updateformulir'])) {
                   <!-- Button Modal Tambah Anggota -->
                   <button type="button" class="btn btn-info btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalTambahAnggota"><b>+ Tambah</b></button>
                   <!-- Tabel Anggota -->
-                  <div id="table-employee" class="table-responsive">
-                    <table id="example1" class="table table-primary" style="width:100%">
+                  <div id="table-employee" class="table table-striped table-bordered">
+                    <table id="example1" class="table table-primary" style="width:100%;">
                       <thead>
                         <tr>
                           <th>No</th>
@@ -280,7 +280,7 @@ if (isset($_POST['updateformulir'])) {
                   <!-- Button Modal Matkul Tujuan-->
                   <button type="button" class="btn btn-info btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#ModalTambahMatkul"><b>+ Tambah</b></button>
                   <!-- Tabel Matkul Tujuan -->
-                  <div id="table-employee" class="table-responsive">
+                  <div id="table-employee" class="table table-striped table-bordered">
                     <table id="example2" class="table table-primary" style=" width:100%">
                       <thead>
                         <tr>
@@ -330,8 +330,8 @@ if (isset($_POST['updateformulir'])) {
           <div class="row">
             <div class="col-12">
               <div class="modal-footer mt-3">
-                <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir; ?>"><input type="button" value="KEMBALI" class="btn btn-danger btn-lg"></input></a>
-                <input type="submit" name="updateformulir" value="SIMPAN" class="btn btn-success btn-lg" onclick="return confirm('Yakin ingin menyimpan Formulir?')"></input>
+                <a href="../mahasiswa/template.php?page=detail_ajuan&&id_formulir=<?= $id_formulir; ?>"><input type="button" value="KEMBALI" class="btn btn-danger btn-m"></input></a>
+                <input type="submit" name="updateformulir" value="SIMPAN" class="btn btn-success btn-m" onclick="return confirm('Yakin ingin menyimpan Formulir?')"></input>
               </div>
             </div>
           </div>
@@ -374,7 +374,7 @@ if (isset($_POST['updateformulir'])) {
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
+          <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Kembali</button>
           <button type="submit" name="tambahanggota" class="btn btn-success">Tambah Anggota</button>
         </div>
       </div>
@@ -413,7 +413,7 @@ if (isset($_POST['updateformulir'])) {
             </select>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Kembali</button>
+          <button type="button" class="btn btn-danger btn-m" data-bs-dismiss="modal">Kembali</button>
           <button type="submit" name="tambahmatkul" class="btn btn-success">Tambah Matkul</button>
         </div>
       </div>
