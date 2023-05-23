@@ -64,7 +64,7 @@ include "../koneksi.php";
             </button>
         </div>
     </nav>
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-grey-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
 
